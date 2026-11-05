@@ -3,3 +3,71 @@
 
 /* The deliberately simple notice cards only display receipt metadata; they do not implement an ownership-claim workflow. */
 .handover-note{font-size:10px;line-height:1.45;color:#746e61;margin:2px 0 10px;padding-top:4px;}
+/* ===== UI/UX redesign additions (paste at the end of styles.css) ===== */
+/* Readability: raise the smallest text sizes and stop rotating cards */
+.sticky,.sticky:nth-child(2n),.sticky:nth-child(3n){transform:none;min-height:0;display:flex;flex-direction:column}
+.sticky p{font-size:13px;color:#5f584d;min-height:0}
+.sticky-top{font-size:11px;color:#8a7650;align-items:center}
+.sticky-bottom{font-size:12px;color:#6f6450}
+.column-head strong{font-size:14px}.column-head small{font-size:12px;color:#7d776d}
+.intro,.filterbox label{font-size:13px}.filterbox input,.filterbox select{font-size:14px;color:#252c32}
+.header-links button{font-size:14px;padding:8px 10px;border-radius:6px}
+.header-links button[aria-current=page]{background:#262c30;color:#fff}
+.report-button{font-size:14px}
+.filters h1{font-size:28px}
+
+/* Change 3: two clear starting points + recovery steps */
+.start-actions{display:grid;gap:10px;margin-top:18px}
+.start{display:flex;flex-direction:column;align-items:flex-start;gap:3px;text-align:left;border:2px solid #262c30;border-radius:9px;padding:13px 15px;background:#fff}
+.start strong{font-size:15px}.start span{font-size:12px;color:#6b665c}
+.start.found{background:#ffdb64}
+.start:hover{box-shadow:3px 3px 0 #262c30}
+.howto{background:#fff;border:1px solid #e2ded3;border-radius:9px;padding:16px 18px;margin-top:18px;font-size:13px;color:#4d504c}
+.howto ol{padding-left:18px;margin:10px 0;line-height:1.55}.howto p{margin:0;font-size:12px;color:#7d776d}
+.handover{display:flex;flex-direction:column;gap:3px;border-radius:6px;padding:9px 10px;margin:0 0 12px;font-size:12px;line-height:1.4;border:1px solid}
+.handover strong{font-size:13px}
+.handover.ok{background:#e4f4ea;border-color:#9fd0b0;color:#1f5a35}
+.handover.warn{background:#fff1d6;border-color:#e9c27a;color:#7a4d00}
+.handover.done{background:#e8edf7;border-color:#b6c3dd;color:#33436b}
+
+/* Change 2: instant filters, live count, removable chips */
+.live-count{font-size:13px;font-weight:700;margin:0 0 12px}
+.clear{width:100%;border:1px solid #d6d5cd;background:#fff;border-radius:5px;padding:10px;font-size:13px}
+.clear:disabled{opacity:.45;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:-6px 0 18px}
+.chips button{border:1px solid #262c30;background:#fff;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700}
+.board-grid.cols-1{grid-template-columns:minmax(0,1fr)}
+.board-grid.cols-1 .sticky-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.empty-all{background:#fff;border:1px dashed #c9bf9f;border-radius:9px;padding:30px;text-align:center}
+.empty-all p{font-size:13px;color:#6b665c;max-width:460px;margin:8px auto 16px}
+.empty-all div{display:flex;gap:10px;justify-content:center}
+.empty-all div button:first-child{border:1px solid #d6d5cd;background:#fff;border-radius:5px;padding:10px 14px}
+.message{font-size:13px;align-items:center;gap:10px}
+
+/* Change 4: visible ownership + edit */
+.sticky.mine{outline:2px solid #262c30;outline-offset:-1px}
+.mine-tag{background:#262c30;color:#fff;border-radius:999px;padding:3px 8px;font-size:10px;letter-spacing:.06em}
+.edit-btn{margin-top:12px;align-self:flex-start;border:1px solid #262c30;background:#fff;border-radius:5px;padding:7px 12px;font-size:13px;font-weight:700}
+.edit-btn:hover{background:#262c30;color:#fff}
+
+/* Change 1: field-level validation */
+.form-paper form>label{display:block;margin:18px 0 7px;font-size:13px}
+.form-paper form>input,.form-paper form>select,.form-paper form>textarea{display:block;width:100%;font-size:14px;color:#252c32}
+.form-paper header{display:flex;justify-content:space-between;align-items:baseline}
+.req-note{font-size:12px;color:#7d776d}.req-note b,.form-paper legend b{color:#b0704b}
+.opt{font-weight:400;color:#8a857b}
+.form-paper .invalid{border-color:#ba523e;background:#fffaf9}
+.field-error{color:#a3402d;font-size:13px;margin:6px 0 0;font-weight:600}
+.form-error{font-size:13px;margin-bottom:18px}
+.status-pick{border:0;padding:0;margin:0}
+.status-pick legend{font-size:13px;font-weight:700;color:#4d504c;margin-bottom:8px;padding:0}
+.status-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.form-paper .status-options label{flex-direction:row;align-items:center;gap:8px;margin:0;border:1px solid #d7d7cd;border-radius:6px;padding:11px;cursor:pointer;font-size:13px}
+.status-options label.on{border-color:#262c30;background:#fff8dc;box-shadow:inset 0 0 0 1px #262c30}
+.status-pick.invalid .status-options label{border-color:#ba523e}
+.hint{margin-top:14px;font-size:13px;line-height:1.5;border-radius:6px;padding:11px 12px}
+.found-hint{background:#e4f4ea;color:#1f5a35;border:1px solid #9fd0b0}
+.form-actions{margin-top:22px}
+.form-actions>button:first-child{font-size:14px}
+:focus-visible{outline:3px solid #2563eb;outline-offset:2px}
+@media(max-width:750px){.status-options{grid-template-columns:1fr}.header-links button{font-size:12px}}
